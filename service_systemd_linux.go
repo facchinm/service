@@ -157,6 +157,9 @@ const systemdScript = `[Unit]
 Description={{.Description}}
 ConditionFileIsExecutable={{.Path|cmdEscape}}
 
+{{if .Dependencies}}Wants={{range .Dependencies}}{{. }} {{end}}{{end}}
+{{if .Dependencies}}After={{range .Dependencies}}{{. }} {{end}}{{end}}
+
 [Service]
 StartLimitInterval=5
 StartLimitBurst=10
