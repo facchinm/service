@@ -170,7 +170,7 @@ ExecStart={{.Path|cmdEscape}}{{range .Arguments}} {{.|cmd}}{{end}}
 {{if .ReloadSignal}}ExecReload=/bin/kill -{{.ReloadSignal}} "$MAINPID"{{end}}
 {{if .PIDFile}}PIDFile={{.PIDFile|cmd}}{{end}}
 Restart=always
-RestartSec=120
+RestartSec=10
 EnvironmentFile=-/etc/sysconfig/{{.Name}}
 
 [Install]
