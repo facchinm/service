@@ -171,6 +171,7 @@ ExecStart={{.Path|cmdEscape}}{{range .Arguments}} {{.|cmd}}{{end}}
 {{if .PIDFile}}PIDFile={{.PIDFile|cmd}}{{end}}
 Restart=always
 RestartSec=10
+ConditionFileIsExecutable=
 EnvironmentFile=-/etc/sysconfig/{{.Name}}
 
 [Install]
